@@ -4,23 +4,10 @@ orbs:
 workflows:
   test-app:
     jobs:
-      - test
       - build
         
 jobs:
-  test:
-    docker:
-     - image: cimg/node:14.13.0
-    steps: 
-      - checkout
-      - node/with-cache:
-          steps:
-            - run:
-               name: install dependencies
-               command: npm install
-            - run:
-                name: run tests 
-                command: npm run test
+  
   build: 
     docker:
      - image: cimg/node:14.13.0
